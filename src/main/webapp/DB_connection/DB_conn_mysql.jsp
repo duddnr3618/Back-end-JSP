@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-       <%@ page import = "java.sql.*,java.util.*" %>
-       
+     <%@ page import = "java.sql.*"  %>
+    
     	<%
-		Connection conn = null;		//Connection 객체 변수 초기화
-		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/mydb";
+		Connection conn = null; 	// Connection 객체 변수 초기화 
+		String driver = "com.mysql.jdbc.Driver"; 
+		String url = "jdbc:mysql://localhost:3306/mydb"; 
 		
-		try {
-		Class.forName(driver);		// 해당 경로에 오라클드라이버클래스가 존재하지 확인
-		}catch (Exception e) {
-		
-		}
 
-	
+		try {	
+		Class.forName(driver);    // 해당경로에 MYSQL Driver 클래스가 존재하는지 확인
+		conn = DriverManager.getConnection(url, "root", "1234"); 			
+		} catch (Exception e) {				
+		}
+  
 	%>
 <!DOCTYPE html>
 <html>

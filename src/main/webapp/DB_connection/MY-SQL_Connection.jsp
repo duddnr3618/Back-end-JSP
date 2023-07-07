@@ -19,37 +19,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Oracle Connection</title>
+<title>MY-SQL Connection</title>
 </head>
 <body>
-	<h2> Oracle Connection </h2>
+	<h2> MY - SQL Connection </h2>
 
 	<%
 		Connection conn = null; 	// Connection 객체 변수 초기화 
-		String driver = "oracle.jdbc.driver.OracleDriver"; 
-		String url = "jdbc:oracle:thin:@localhost:1521:XE"; 
+		String driver = "com.mysql.jdbc.Driver"; 
+		String url = "jdbc:mysql://localhost:3306/mydb"; 
 		
 		Boolean connect = false ;     // DB 접속이 성공했는지 알려주는 변수
 		
 		try {
 			
-		Class.forName(driver);    // 해당경로에 OracleDriver 클래스가 존재하는지 확인
-		conn = DriverManager.getConnection(url, "C##HR2", "1234"); 		
+		Class.forName(driver);    // 해당경로에 MYSQL Driver 클래스가 존재하는지 확인
+		conn = DriverManager.getConnection(url, "root", "1234"); 		
 		connect = true; 
 			
-		} catch (Exception e) {	
-			
-			//e.printStackTrace(); 
-			
-			connect = false; 		
+		} catch (Exception e) {		
+		connect = false; 		
 		}
 		
 	  // connect 변수가 true : DB 접속 성공 , false : DB 접속 실패 
 	  
 	  if ( connect == true) {
-		  out.println ("오라클에 잘 접속 되었습니다. "); 
+		  out.println ("MY - SQL Server 에 잘 접속 되었습니다. "); 
 	  }else {
-		  out.println ("오라클에 실패 되었습니다. "); 
+		  out.println ("MY - SQL Server 에 실패 되었습니다. "); 
 	  }
 	  
 	%>
